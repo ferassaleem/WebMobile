@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Mobile>
+
+@{
+    ViewData["Title"] = "List of Mobile";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-xs-6 border-primary mb-3">
+            <div class="card mb-3" style="max-width: 750px;">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <div class="card-header text-white bg-info">
+                            <p class="card-text">
+                                <h5 class="card-title">
+                                    @item.Company.CompanyName @item.MobileName
+                                    <a class="text-white float-right">
+                                        <i class="badge-info bi-pencil-square">
+
+                                        </i>
+                                    </a>
+                                                                        
+                                </h5>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="@item.MobilePictureURL" width="100%" alt="@item.MobileName">
+                        <p class="card-text"><b>Company: </b>@item.Company.CompanyName</p>
+                        <p class="card-text"><b>OperatingSystem: </b>@item.OperatingSystem.OperatingName</p>
+                        <p class="card-text"><b>Camera: </b>@item.Camera</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+
+                            <p class="card-text"><b>Processor: </b>@item.Processor</p>
+                            <p class="card-text"><b>RAM: </b>@item.RAM</p>
+                            <p class="card-text"><b>Screen: </b>@item.Screen</p>
+                            <p class="card-text"><b>Battery: </b>@item.Battery</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-footer ">
+                            <p class="card-text">
+                                <a class="btn btn-outline-primary float-right">
+                                    <i class="bi bi-eye-fill">
+
+                                    </i>
+                                    Show Details
+                                </a>
+                                <a class="btn btn-success text-white">
+                                    <i class="bi bi-cart-plus">
+
+                                    </i>
+                                    Add to Cart
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
