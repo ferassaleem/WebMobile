@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebMobile.Data.Base;
 
 namespace WebMobile.Models
 {
-    public class Company
+    public class Company : IEntityBase
     {
         [Key]
         public int Id { get; set; }

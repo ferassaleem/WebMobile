@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebMobile.Data;
-using WebMobile.Services;
+using WebMobile.Data.Services;
 
 namespace WebMobile
 {
@@ -31,6 +31,8 @@ namespace WebMobile
 
             //Services configuration
             services.AddScoped<ICompanyServices, CompanyService>();
+            services.AddScoped<IMobile_Service, MobilesService>();
+            services.AddScoped<IOperating_SystemService, Operating_SystemService>();
 
             services.AddControllersWithViews();
         }

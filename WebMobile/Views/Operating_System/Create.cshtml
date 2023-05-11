@@ -1,0 +1,61 @@
+﻿@model Operating_System
+@{
+    ViewData["Title"] = "Add a new Operating_System";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>
+                Add a New Operating_System
+            </h1>
+        </p>
+        <div class="col-md-8 offset-2">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger">
+
+                </div>
+                <div class="form-group text-center">
+                    <img id="OperatingPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="OperatingPictureURL" class="control-label">
+
+                    </label>
+                    <input asp-for="OperatingPictureURL" class="form-control" />
+                    <span asp-validation-for="OperatingPictureURL" class="text-danger">
+
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OperatingName" class="control-label">
+
+                    </label>
+                    <input asp-for="OperatingName" class="form-control" />
+                    <span asp-validation-for="OperatingName" class="text-danger">
+
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                    <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('OperatingPicturePreview');
+            output.src = $("").val();
+        })
+
+        $("#OperatingPictureURL").on("change", function () {
+            var output = document.getElementById('OperatingPicturePreview');
+            output.src = $(this).val();
+        })
+
+    </script>
+}

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebMobile.Data.Base;
 
 namespace WebMobile.Models
 {
-    public class Mobile
+    public class Mobile : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -34,7 +36,7 @@ namespace WebMobile.Models
         //OperatingSystem
         public int OperatingSystemId { get; set; }
         [ForeignKey("OperatingSystemId")]
-        public Operating_System OperatingSystem { get; set; }
+        public Operating_System Operating_System { get; set; }
         
         //Company
         public int CompanyId { get; set; }

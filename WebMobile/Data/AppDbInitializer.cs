@@ -26,7 +26,7 @@ namespace WebMobile.Data
                         new Operating_System()
                         {
                             OperatingPictureURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/872px-Android_robot.svg.png",
-                            OperatingName = "Android"
+                            OperatingName  = "Android"
                         }
                     });
                     context.SaveChanges();
