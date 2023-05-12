@@ -11,9 +11,9 @@ namespace WebMobile.Controllers
 {
     public class Operating_SystemController : Controller
     {
-        private readonly IOperating_SystemService _service;
+        private readonly IOperatingSystemService _service;
 
-        public Operating_SystemController(IOperating_SystemService service)
+        public Operating_SystemController(IOperatingSystemService service)
         {
             _service = service;
         }
@@ -33,7 +33,7 @@ namespace WebMobile.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("OperatingPictureURL,OperatingName")] Operating_System Operating)
+        public async Task<IActionResult> Create([Bind("Operating_SystemPictureURL,Operating_SystemName")] Operating_System Operating)
         {
             if (!ModelState.IsValid) return View(Operating);
 
@@ -59,7 +59,7 @@ namespace WebMobile.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, OperatingPictureURL,OperatingName")] Operating_System Operating)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, Operating_SystemPictureURL,Operating_SystemName")] Operating_System Operating)
         {
             if (!ModelState.IsValid) return View(Operating);
             if(id ==  Operating.Id)

@@ -8,7 +8,7 @@ using WebMobile.Models;
 
 namespace WebMobile.Data.Services
 {
-    public class MobilesService : EntityBaseRepository<Mobile>, IMobile_Service
+    public class MobilesService : EntityBaseRepository<Mobile>, IMobileService
     {
         private readonly AppDbContext _context;
         public MobilesService(AppDbContext context) : base(context)
@@ -49,7 +49,7 @@ namespace WebMobile.Data.Services
             var response = new NewMobileDropdowns()
             {
                 Companies = await _context.Companies.OrderBy(n => n.CompanyName).ToListAsync(),
-                Operatings = await _context.Operatings.OrderBy(n => n.OperatingName).ToListAsync()
+                Operatings = await _context.Operatings.OrderBy(n => n.Operating_SystemName).ToListAsync()
             };
 
             return response;

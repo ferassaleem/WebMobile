@@ -10,10 +10,10 @@
             <thead>
                 <tr class="text-center">
                     <th>
-                        @Html.DisplayNameFor(model => model.OperatingPictureURL)
+                        @Html.DisplayNameFor(model => model.Operating_SystemPictureURL)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.OperatingName)
+                        @Html.DisplayNameFor(model => model.Operating_SystemName)
                     </th>
                     <th>
                         Actions
@@ -25,10 +25,10 @@
                 {
                     <tr>
                         <td class="align-middle">
-                            <img class="rounded-circle" src="@item.OperatingPictureURL" alt="@item.OperatingName" style="max-width: 150px" />
+                            <img class="rounded-circle" src="@item.Operating_SystemPictureURL" alt="@item.Operating_SystemName" style="max-width: 150px" />
                         </td>
                         <td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.OperatingName)
+                            @Html.DisplayFor(modelItem => item.Operating_SystemName)
                         </td>
                         <td class="align-middle">
                             <a class="btn btn-outline-primary">
@@ -58,7 +58,7 @@
 
 </div>
 <div style="position: fixed; right: 25px; bottom: 25px;" class="text-white">
-    <a asp-controller="Company" asp-action="Create" class="btn btn-success">
+    <a asp-controller="Operating_System" asp-action="Create" class="btn btn-success">
         <i class="bi-plus-circle">
 
         </i>

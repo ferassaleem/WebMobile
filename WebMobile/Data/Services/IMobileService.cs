@@ -5,7 +5,7 @@ using WebMobile.Models;
 
 namespace WebMobile.Data.Services
 {
-    public interface IMobile_Service : IEntityBaseRepository<Mobile>
+    public interface IMobileService : IEntityBaseRepository<Mobile>
     {
         Task<Mobile> GetMobileByIdAsync(int id);
         Task<NewMobileDropdowns> GetNewMobileDropdownsValues();

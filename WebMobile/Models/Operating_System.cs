@@ -10,14 +10,14 @@ namespace WebMobile.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "OperatingPictureURL")]
-        [Required (ErrorMessage = "Operating Picture is required")]
-        public string OperatingPictureURL { get; set; }
+        [Display(Name = "Operating_SystemPictureURL")]
+        [Required(ErrorMessage = "Operating System Picture is required")]
+        public string Operating_SystemPictureURL { get; set; }
 
-        [Display(Name = "OperatingName")]
-        //[Required(ErrorMessage = "Operating Name is required")]
-        //[StringLength(50, MinimumLength = 3, ErrorMessage = "Operating Name must be between 3 and 50 chars")]
-        public string OperatingName { get; set; }
+        [Display(Name = "Operating_SystemName")]
+        [Required(ErrorMessage = "Operating System Name is required")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Operating System Name must be between 3 and 50 chars")]
+        public string Operating_SystemName { get; set; }
         public List<Mobile> Mobiles { get; set; }
 
     }

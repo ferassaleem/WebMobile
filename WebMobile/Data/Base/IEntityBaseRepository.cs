@@ -12,9 +12,7 @@ namespace WebMobile.Data.Base
         Task<T> GetByIdAsync(int id);
         Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includeProperties);
         Task AddAsync(T entity);
-        //Task AddAsync();
         Task UpdateAsync(int id, T entity);
-        //Task UpdateAsync();
         Task DeleteAsync(int id);
         Task DeleteAsync();
 

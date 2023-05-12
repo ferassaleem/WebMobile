@@ -15,23 +15,23 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger">
                 </div>
                 <div class="form-group text-center">
-                    <img id="OperatingPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
+                    <img id="Operating_SystemPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="OperatingPictureURL" class="control-label">
+                    <label asp-for="Operating_SystemPictureURL" class="control-label">
 
                     </label>
-                    <input asp-for="OperatingPictureURL" class="form-control" />
-                    <span asp-validation-for="OperatingPictureURL" class="text-danger">
+                    <input asp-for="Operating_SystemPictureURL" class="form-control" />
+                    <span asp-validation-for="Operating_SystemPictureURL" class="text-danger">
 
                     </span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="OperatingName" class="control-label">
+                    <label asp-for="Operating_SystemName" class="control-label">
 
                     </label>
-                    <input asp-for="OperatingName" class="form-control" />
-                    <span asp-validation-for="OperatingName" class="text-danger">
+                    <input asp-for="Operating_SystemName" class="form-control" />
+                    <span asp-validation-for="Operating_SystemName" class="text-danger">
 
                     </span>
                 </div>
@@ -47,12 +47,12 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
-            var output = document.getElementById('OperatingPicturePreview');
+            var output = document.getElementById('Operating_SystemPicturePreview');
             output.src = $("").val();
         })
 
-        $("#OperatingPictureURL").on("change", function () {
-            var output = document.getElementById('OperatingPicturePreview');
+        $("#Operating_SystemPictureURL").on("change", function () {
+            var output = document.getElementById('Operating_SystemPicturePreview');
             output.src = $(this).val();
         })
 

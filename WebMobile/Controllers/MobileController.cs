@@ -15,9 +15,9 @@ namespace WebMobile.Controllers
 {
     public class MobileController : Controller
     {
-        private readonly IMobile_Service _service;
+        private readonly IMobileService _service;
 
-        public MobileController(IMobile_Service service)
+        public MobileController(IMobileService service)
         {
             _service = service;
         }
@@ -27,7 +27,7 @@ namespace WebMobile.Controllers
             var MobileDropdownsData = await _service.GetNewMobileDropdownsValues();
 
             ViewBag.Companies = new SelectList(MobileDropdownsData.Companies, "Id", "CompanyName");
-            ViewBag.Operatings = new SelectList(MobileDropdownsData.Operatings, "Id", "OperatingName");
+            ViewBag.Operatings = new SelectList(MobileDropdownsData.Operatings, "Id", "Operating_SystemName");
             return View();
         }
 
@@ -39,7 +39,7 @@ namespace WebMobile.Controllers
                 var mobileDropdownsData = await _service.GetNewMobileDropdownsValues();
 
                 ViewBag.Companies = new SelectList(mobileDropdownsData.Companies, "Id", "CompanyName");
-                ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "OperatingName");
+                ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "Operating_SystemName");
 
                 return View(mobile);
             }
@@ -76,7 +76,7 @@ namespace WebMobile.Controllers
         }
 
         //GET: Mobiles/Details/1
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var MobileDetail = await _service.GetMobileByIdAsync(id);
@@ -108,7 +108,7 @@ namespace WebMobile.Controllers
 
             var mobileDropdownsData = await _service.GetNewMobileDropdownsValues();
             ViewBag.Companies = new SelectList(mobileDropdownsData.Companies, "Id", "CompanyName");
-            ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "OperatingName");
+            ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "Operating_SystemName");
 
             return View(response);
         }
@@ -123,7 +123,7 @@ namespace WebMobile.Controllers
                 var mobileDropdownsData = await _service.GetNewMobileDropdownsValues();
 
                 ViewBag.Companies = new SelectList(mobileDropdownsData.Companies, "Id", "CompanyName");
-                ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "OperatingName");
+                ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "Operating_SystemName");
 
                 return View(mobile);
             }
