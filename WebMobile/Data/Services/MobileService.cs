@@ -39,7 +39,6 @@ namespace WebMobile.Data.Services
             var MobileDetails = await _context.Mobiles
                 .Include(c => c.Company)
                 .Include(p => p.Operating)
-                .Include(f => f.RAM)
                 .FirstOrDefaultAsync(n => n.Id == id);
 
             return MobileDetails;
