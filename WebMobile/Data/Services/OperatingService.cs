@@ -8,8 +8,9 @@ using WebMobile.Models;
 
 namespace WebMobile.Data.Services
 {
-    public class OperatingSystemService : EntityBaseRepository<Operating_System>, IOperatingSystemService
+    public class OperatingService : EntityBaseRepository<Operating>, IOperatingService
     {
-        public OperatingSystemService(AppDbContext context) : base(context) { }
+        public OperatingService(AppDbContext context) : base(context) { }
+
     }
 }

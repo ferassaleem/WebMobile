@@ -12,7 +12,7 @@ namespace WebMobile.Data
         
         public DbSet<Company> Companies { get; set; }
         public DbSet<Mobile> Mobiles { get; set; }
-        public DbSet<Operating_System> Operatings { get; set; }
+        public DbSet<Operating> Operatings { get; set; }
 
 
     }

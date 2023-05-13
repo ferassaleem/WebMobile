@@ -27,7 +27,8 @@ namespace WebMobile.Controllers
             var MobileDropdownsData = await _service.GetNewMobileDropdownsValues();
 
             ViewBag.Companies = new SelectList(MobileDropdownsData.Companies, "Id", "CompanyName");
-            ViewBag.Operatings = new SelectList(MobileDropdownsData.Operatings, "Id", "Operating_SystemName");
+            ViewBag.Operatings = new SelectList(MobileDropdownsData.Operatings, "Id", "OperatingName");
+
             return View();
         }
 
@@ -39,7 +40,7 @@ namespace WebMobile.Controllers
                 var mobileDropdownsData = await _service.GetNewMobileDropdownsValues();
 
                 ViewBag.Companies = new SelectList(mobileDropdownsData.Companies, "Id", "CompanyName");
-                ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "Operating_SystemName");
+                ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "OperatingName");
 
                 return View(mobile);
             }
@@ -51,23 +52,26 @@ namespace WebMobile.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var allMobile = await _service.GetAllAsync(n => n.Company);
+            var allMobile = await _service.GetAllAsync(n => n.Company, m => m.Operating);
+            
             return View(allMobile);
         }
 
         [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
-            var allMobile = await _service.GetAllAsync(n => n.Company);
+            var allMobile = await _service.GetAllAsync(n => n.Company, n => n.Operating);
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                var filteredResultNew = allMobile.Where(n => string.Equals(n.MobileName, searchString, StringComparison.CurrentCultureIgnoreCase) ||
-                string.Equals(n.Processor, searchString, StringComparison.CurrentCultureIgnoreCase) ||
-                string.Equals(n.RAM, searchString, StringComparison.CurrentCultureIgnoreCase) ||
-                    string.Equals(n.Camera, searchString, StringComparison.CurrentCultureIgnoreCase) ||
-                    string.Equals(n.Screen, searchString, StringComparison.CurrentCultureIgnoreCase) ||
-                    string.Equals(n.Battery, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                var filteredResultNew = allMobile.Where(n => string.Equals(n.MobileName, searchString, StringComparison.CurrentCultureIgnoreCase)||
+                    (string.Equals(n.Processor, searchString, StringComparison.CurrentCultureIgnoreCase))||
+                    (string.Equals(n.RAM, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
+                    (string.Equals(n.Camera, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
+                    (string.Equals(n.Screen, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
+                    (string.Equals(n.Battery, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
+                    (string.Equals(n.Company.CompanyName, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
+                    (string.Equals(n.Operating.OperatingName, searchString, StringComparison.CurrentCultureIgnoreCase))).ToList();
 
                 return View("Index", filteredResultNew);
             }
@@ -102,13 +106,14 @@ namespace WebMobile.Controllers
                 Camera = mobileDetails.Camera,
                 Screen = mobileDetails.Screen,
                 Battery = mobileDetails.Battery,
-                OperatingSystemId = mobileDetails.OperatingSystemId,
+                OperatingId = mobileDetails.OperatingId,
                 CompanyId = mobileDetails.CompanyId,
             };
 
             var mobileDropdownsData = await _service.GetNewMobileDropdownsValues();
             ViewBag.Companies = new SelectList(mobileDropdownsData.Companies, "Id", "CompanyName");
-            ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "Operating_SystemName");
+            ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "OperatingName");
+
 
             return View(response);
         }
@@ -123,7 +128,8 @@ namespace WebMobile.Controllers
                 var mobileDropdownsData = await _service.GetNewMobileDropdownsValues();
 
                 ViewBag.Companies = new SelectList(mobileDropdownsData.Companies, "Id", "CompanyName");
-                ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "Operating_SystemName");
+                ViewBag.Operatings = new SelectList(mobileDropdownsData.Operatings, "Id", "OperatingName");
+
 
                 return View(mobile);
             }
@@ -132,11 +138,6 @@ namespace WebMobile.Controllers
             return RedirectToAction(nameof(Index));
 
         }
-
-
-
-
-
     }
 }
 

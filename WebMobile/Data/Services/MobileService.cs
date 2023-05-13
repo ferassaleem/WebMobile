@@ -27,7 +27,7 @@ namespace WebMobile.Data.Services
                 Camera = data.Camera,
                 Screen = data.Screen,
                 Battery = data.Battery,
-                OperatingSystemId = data.OperatingSystemId,
+                OperatingId = data.OperatingId,
                 CompanyId = data.CompanyId
             };
             await _context.Mobiles.AddAsync(newMobile);
@@ -38,7 +38,8 @@ namespace WebMobile.Data.Services
         {
             var MobileDetails = await _context.Mobiles
                 .Include(c => c.Company)
-                .Include(p => p.Operating_System)
+                .Include(p => p.Operating)
+                .Include(f => f.RAM)
                 .FirstOrDefaultAsync(n => n.Id == id);
 
             return MobileDetails;
@@ -49,7 +50,7 @@ namespace WebMobile.Data.Services
             var response = new NewMobileDropdowns()
             {
                 Companies = await _context.Companies.OrderBy(n => n.CompanyName).ToListAsync(),
-                Operatings = await _context.Operatings.OrderBy(n => n.Operating_SystemName).ToListAsync()
+                Operatings = await _context.Operatings.OrderBy(n => n.OperatingName).ToListAsync()
             };
 
             return response;
@@ -68,7 +69,7 @@ namespace WebMobile.Data.Services
                 dbMobile.Camera = data.Camera;
                 dbMobile.Screen = data.Screen;
                 dbMobile.Battery = data.Battery;
-                dbMobile.OperatingSystemId = data.OperatingSystemId;
+                dbMobile.OperatingId = data.OperatingId;
                 dbMobile.CompanyId = data.CompanyId;
                 await _context.SaveChangesAsync();
             }

@@ -11,9 +11,9 @@ namespace WebMobile.Controllers
 {
     public class CompanyController : Controller
     {
-        private readonly ICompanyServices _service;
+        private readonly ICompanyService _service;
 
-        public CompanyController(ICompanyServices service)
+        public CompanyController(ICompanyService service)
         {
             _service = service;
         }

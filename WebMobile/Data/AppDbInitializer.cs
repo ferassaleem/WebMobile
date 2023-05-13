@@ -21,12 +21,12 @@ namespace WebMobile.Data
                 //Operating system
                 if (!context.Operatings.Any())
                 {
-                    context.Operatings.AddRange(new List<Operating_System>()
+                    context.Operatings.AddRange(new List<Operating>()
                         {
-                        new Operating_System()
+                        new Operating()
                         {
-                            Operating_SystemPictureURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/872px-Android_robot.svg.png",
-                            Operating_SystemName  = "Android"
+                            OperatingPictureURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/872px-Android_robot.svg.png",
+                            OperatingName  = "Android"
                         }
                     });
                     context.SaveChanges();
@@ -60,7 +60,7 @@ namespace WebMobile.Data
                             Camera = "Quad rear 50 + 5 + 2 + 2 MB",
                             Screen = "6.6 inches, with FHD",
                             Battery = "5000 mAh",
-                            OperatingSystemId =1, 
+                            OperatingId =1, 
                             CompanyId = 1
                         }
                     });

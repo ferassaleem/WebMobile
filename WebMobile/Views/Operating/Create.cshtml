@@ -1,13 +1,13 @@
-﻿@model Operating_System
+﻿@model Operating
 @{
-    ViewData["Title"] = "Add a new Operating_System";
+    ViewData["Title"] = "Add a new Operating";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
             <h1>
-                Add a New Operating_System
+                Add a New Operating
             </h1>
         </p>
         <div class="col-md-8 offset-2">
@@ -16,23 +16,23 @@
 
                 </div>
                 <div class="form-group text-center">
-                    <img id="Operating_SystemPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
+                    <img id="OperatingPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Operating_SystemPictureURL" class="control-label">
+                    <label asp-for="OperatingPictureURL" class="control-label">
 
                     </label>
-                    <input asp-for="Operating_SystemPictureURL" class="form-control" />
-                    <span asp-validation-for="Operating_SystemPictureURL" class="text-danger">
+                    <input asp-for="OperatingPictureURL" class="form-control" />
+                    <span asp-validation-for="OperatingPictureURL" class="text-danger">
 
                     </span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Operating_SystemName" class="control-label">
+                    <label asp-for="OperatingName" class="control-label">
 
                     </label>
-                    <input asp-for="Operating_SystemName" class="form-control" />
-                    <span asp-validation-for="Operating_SystemName" class="text-danger">
+                    <input asp-for="OperatingName" class="form-control" />
+                    <span asp-validation-for="OperatingName" class="text-danger">
 
                     </span>
                 </div>
@@ -48,12 +48,12 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
-            var output = document.getElementById('Operating_SystemPicturePreview');
+            var output = document.getElementById('OperatingPicturePreview');
             output.src = $("").val();
         })
 
-        $("#Operating_SystemPictureURL").on("change", function () {
-            var output = document.getElementById('Operating_SystemPicturePreview');
+        $("#OperatingPictureURL").on("change", function () {
+            var output = document.getElementById('OperatingPicturePreview');
             output.src = $(this).val();
         })
 

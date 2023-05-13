@@ -5,7 +5,7 @@ using WebMobile.Models;
 
 namespace WebMobile.Data.Services
 {
-    public interface ICompanyServices : IEntityBaseRepository<Company>
+    public interface IOperatingService : IEntityBaseRepository<Operating>
     {
 
     }

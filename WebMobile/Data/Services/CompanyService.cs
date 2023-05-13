@@ -8,7 +8,7 @@ using WebMobile.Models;
 
 namespace WebMobile.Data.Services
 {
-    public class CompanyService : EntityBaseRepository<Company>, ICompanyServices
+    public class CompanyService : EntityBaseRepository<Company>, ICompanyService
     {
         public CompanyService(AppDbContext context) : base(context) { }
 

@@ -33,8 +33,8 @@ namespace WebMobile
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
             //Services configuration
-            services.AddScoped<IOperatingSystemService, OperatingSystemService>();
-            services.AddScoped<ICompanyServices, CompanyService>();
+            services.AddScoped<IOperatingService, OperatingService>();
+            services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IMobileService, MobilesService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));

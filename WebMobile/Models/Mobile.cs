@@ -34,10 +34,10 @@ namespace WebMobile.Models
 
 
         //OperatingSystem
-        public int OperatingSystemId { get; set; }
-        [ForeignKey("OperatingSystemId")]
-        public Operating_System Operating_System { get; set; }
-        
+        public int OperatingId { get; set; }
+        [ForeignKey("OperatingId")]
+        public Operating Operating { get; set; }
+
         //Company
         public int CompanyId { get; set; }
         [ForeignKey("CompanyId")]

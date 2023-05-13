@@ -19,8 +19,7 @@
                                         <i class="badge-info bi-pencil-square">
 
                                         </i>
-                                    </a>
-                                                                        
+                                    </a>                       
                                 </h5>
                             </p>
                         </div>
@@ -28,7 +27,7 @@
                     <div class="col-md-6">
                         <img src="@item.MobilePictureURL" width="100%" alt="@item.MobileName">
                         <p class="card-text"><b>Company: </b>@item.Company.CompanyName</p>
-                        <p class="card-text"><b>OperatingSystem: </b></p>
+                        <p class="card-text"><b>Operating: </b>@item.Operating.OperatingName</p>
                         <p class="card-text"><b>Camera: </b>@item.Camera</p>
                     </div>
                     <div class="col-md-6">
@@ -62,6 +61,5 @@
             </div>
         </div>
     }
-</div>*
-
-@await Html.PartialAsync("_CreateItem", "Mobiles") 
+</div>
+@await Html.PartialAsync("_CreateItem", "Mobile") 

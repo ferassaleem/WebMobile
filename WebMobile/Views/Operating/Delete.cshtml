@@ -1,4 +1,4 @@
-﻿@model Operating_System
+﻿@model Operating
 @{
     ViewData["Title"] = "Delete Operating";
 }
@@ -7,30 +7,30 @@
     <div class="col-md-8 offset-2">
         <p>
             <h1>
-                Delete for @Model.Operating_SystemName
+                Delete for @Model.OperatingName
             </h1>
         </p>
         <div class="col-md-8 offset-2">
                 <div asp-validation-summary="ModelOnly" class="text-danger">
                 </div>
                 <div class="form-group text-center">
-                <img id="Operating_SystemPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
+                <img id="OperatingPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
                 </div>
                 <div class="form-group">
-                <label asp-for="Operating_SystemPictureURL" class="control-label">
+                    <label asp-for="OperatingPictureURL" class="control-label">
 
                     </label>
-                <input asp-for="Operating_SystemPictureURL" class="form-control" readonly />
-                <span asp-validation-for="Operating_SystemPictureURL" class="text-danger">
+                    <input asp-for="OperatingPictureURL" class="form-control" readonly />
+                    <span asp-validation-for="OperatingPictureURL" class="text-danger">
 
                     </span>
                 </div>
                 <div class="form-group">
-                <label asp-for="Operating_SystemName" class="control-label">
+                    <label asp-for="OperatingName" class="control-label">
 
                     </label>
-                <input asp-for="Operating_SystemName" class="form-control" readonly />
-                <span asp-validation-for="Operating_SystemName" class="text-danger">
+                    <input asp-for="OperatingName" class="form-control" readonly />
+                    <span asp-validation-for="OperatingName" class="text-danger">
 
                     </span>
                 </div>
@@ -49,7 +49,7 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
-            var output = document.getElementById('Operating_SystemPicturePreview');
+            var output = document.getElementById('OperatingPicturePreview');
             output.src = $("").val();
         })
 

@@ -9,11 +9,11 @@ using WebMobile.Models;
 
 namespace WebMobile.Controllers
 {
-    public class Operating_SystemController : Controller
+    public class OperatingController : Controller
     {
-        private readonly IOperatingSystemService _service;
+        private readonly IOperatingService _service;
 
-        public Operating_SystemController(IOperatingSystemService service)
+        public OperatingController(IOperatingService service)
         {
             _service = service;
         }
@@ -33,10 +33,9 @@ namespace WebMobile.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Operating_SystemPictureURL,Operating_SystemName")] Operating_System Operating)
+        public async Task<IActionResult> Create([Bind("OperatingPictureURL,OperatingName")] Operating Operating)
         {
             if (!ModelState.IsValid) return View(Operating);
-
             await _service.AddAsync(Operating);
             return RedirectToAction(nameof(Index));
         }
@@ -59,15 +58,11 @@ namespace WebMobile.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, Operating_SystemPictureURL,Operating_SystemName")] Operating_System Operating)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,OperatingPictureURL,OperatingName")] Operating Operating)
         {
             if (!ModelState.IsValid) return View(Operating);
-            if(id ==  Operating.Id)
-            {
-                await _service.UpdateAsync(id, Operating);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(Operating);
+            await _service.UpdateAsync(id, Operating);
+            return RedirectToAction(nameof(Index));
         }
 
         //Get: Operatings/Delete/1

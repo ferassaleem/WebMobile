@@ -38,10 +38,13 @@ namespace WebMobile.Data.ViewModels
         public string Battery { get; set; }
 
         //Relationships
-        [Display(Name = "OperatingSystemId")]
-        [Required(ErrorMessage = "Operating System is required")]
-        public int OperatingSystemId { get; set; }
 
+        //Operating
+        [Display(Name = "OperatingId")]
+        [Required(ErrorMessage = "Operating System is required")]
+        public int OperatingId { get; set; }
+
+        //Company
         [Display(Name = "CompanyId")]
         [Required(ErrorMessage = "Company is required")]
         public int CompanyId { get; set; }

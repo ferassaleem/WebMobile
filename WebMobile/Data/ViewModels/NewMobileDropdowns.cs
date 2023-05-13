@@ -8,10 +8,10 @@ namespace WebMobile.Data.ViewModels
         public NewMobileDropdowns()
         {
             Companies = new List<Company>();
-            Operatings = new List<Operating_System>();
+            Operatings = new List<Operating>();
         }
         public List<Company> Companies { get; set; }
-        public List<Operating_System> Operatings { get; set; }
-        
+        public List<Operating> Operatings { get; set; }
+
     }
 }
