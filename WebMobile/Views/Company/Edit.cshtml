@@ -46,11 +46,11 @@
 </div>
 @section Scripts{
     <script>
+       
         $(document).ready(function () {
             var output = document.getElementById('CompanyPicturePreview');
-            output.src = $("").val();
+            output.src = "@Model.CompanyPictureURL";
         })
-
         $("#CompanyPictureURL").on("change", function () {
             var output = document.getElementById('CompanyPicturePreview');
             output.src = $(this).val();

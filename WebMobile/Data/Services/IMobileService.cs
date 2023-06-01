@@ -9,8 +9,8 @@ namespace WebMobile.Data.Services
     {
         Task<Mobile> GetMobileByIdAsync(int id);
         Task<NewMobileDropdowns> GetNewMobileDropdownsValues();
-        Task AddNewMobileAsync(NewMobile data);
-        Task UpdateMobileAsync(NewMobile data);
+        Task AddNewMobileAsync(Mobile data);
+        Task UpdateMobileAsync(Mobile data);
     }
 
 }

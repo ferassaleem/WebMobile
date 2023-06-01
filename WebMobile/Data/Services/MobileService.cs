@@ -16,7 +16,7 @@ namespace WebMobile.Data.Services
             _context = context;
         }
 
-        public async Task AddNewMobileAsync(NewMobile data)
+        public async Task AddNewMobileAsync(Mobile data)
         {
             var newMobile = new Mobile()
             {
@@ -55,7 +55,7 @@ namespace WebMobile.Data.Services
             return response;
         }
 
-        public async Task UpdateMobileAsync(NewMobile data)
+        public async Task UpdateMobileAsync(Mobile data)
         {
             var dbMobile = await _context.Mobiles.FirstOrDefaultAsync(n => n.Id == data.Id);
 
@@ -68,6 +68,7 @@ namespace WebMobile.Data.Services
                 dbMobile.Camera = data.Camera;
                 dbMobile.Screen = data.Screen;
                 dbMobile.Battery = data.Battery;
+                dbMobile.Price = data.Price;
                 dbMobile.OperatingId = data.OperatingId;
                 dbMobile.CompanyId = data.CompanyId;
                 await _context.SaveChangesAsync();

@@ -1,7 +1,7 @@
 ﻿@model Mobile
 
 @{
-    ViewData["Title"] = "Mobile details";
+    ViewData["Title"] = "Mobile Delete";
 }
 
 <div class="row">
@@ -27,29 +27,18 @@
                         <p class="card-text"><b>Camera: </b>@Model.Camera</p>
                         <p class="card-text"><b>Screen: </b>@Model.Screen</p>
                         <p class="card-text"><b>Battery: </b>@Model.Battery</p>
-                        <p class="card-text">
-                            <b>Company: </b>
-                            <a asp-controller="Company" asp-action="Details" asp-route-id="@Model.CompanyId">
-                                @Model.Company.CompanyName
-                            </a>
-                            
-                        </p>
-                        <p class="card-text">
-                            <b>Operating: </b>
-                            <a asp-controller="Operating" asp-action="Details" asp-route-id="@Model.OperatingId">
-                                @Model.Operating.OperatingName
-                            </a>
-                        </p>
-                    </div>
-                       
+                        <p class="card-text"><b>Company: </b>@Model.CompanyId</p>
+                        <p class="card-text"><b>Operating: </b>@Model.OperatingId</p>
                         <div class="form-group">
-                            <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id">
-                                Edit
-                            </a>
+                            <form asp-action="Delete">
+                                <input type="hidden" asp-for="Id" />
+                                <input type="submit" value="Confirm" class="btn btn-danger float-right" />
+                            </form>
                             <a class="btn btn-outline-secondary" asp-action="Index">
                                 Show All
                             </a>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

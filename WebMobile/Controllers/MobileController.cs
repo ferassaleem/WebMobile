@@ -33,7 +33,7 @@ namespace WebMobile.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(NewMobile mobile)
+        public async Task<IActionResult> Create(Mobile mobile)
         {
             if (!ModelState.IsValid)
             {
@@ -70,6 +70,7 @@ namespace WebMobile.Controllers
                     (string.Equals(n.Camera, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
                     (string.Equals(n.Screen, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
                     (string.Equals(n.Battery, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
+                    (string.Equals(Convert.ToString(n.Price), searchString, StringComparison.CurrentCultureIgnoreCase)) ||
                     (string.Equals(n.Company.CompanyName, searchString, StringComparison.CurrentCultureIgnoreCase)) ||
                     (string.Equals(n.Operating.OperatingName, searchString, StringComparison.CurrentCultureIgnoreCase))).ToList();
 
@@ -96,7 +97,7 @@ namespace WebMobile.Controllers
             var mobileDetails = await _service.GetMobileByIdAsync(id);
             if (mobileDetails == null) return View("NotFound");
 
-            var response = new NewMobile()
+            var response = new Mobile()
             {
                 Id = mobileDetails.Id,
                 MobilePictureURL = mobileDetails.MobilePictureURL,
@@ -106,6 +107,8 @@ namespace WebMobile.Controllers
                 Camera = mobileDetails.Camera,
                 Screen = mobileDetails.Screen,
                 Battery = mobileDetails.Battery,
+                Price = mobileDetails.Price,
+
                 OperatingId = mobileDetails.OperatingId,
                 CompanyId = mobileDetails.CompanyId,
             };
@@ -119,7 +122,7 @@ namespace WebMobile.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, NewMobile mobile)
+        public async Task<IActionResult> Edit(int id, Mobile mobile)
         {
             if (id != mobile.Id) return View("NotFound");
 
@@ -137,6 +140,23 @@ namespace WebMobile.Controllers
             await _service.UpdateMobileAsync(mobile);
             return RedirectToAction(nameof(Index));
 
+        }
+        //Get: Mobile/Delete/1
+        public async Task<IActionResult> Delete(int id)
+        {
+            var mobileDetails = await _service.GetByIdAsync(id);
+            if (mobileDetails == null) return View("NotFound");
+            return View(mobileDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirm(int id)
+        {
+            var mobileDetails = await _service.GetByIdAsync(id);
+            if (mobileDetails == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

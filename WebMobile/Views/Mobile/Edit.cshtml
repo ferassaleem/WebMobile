@@ -6,16 +6,19 @@
 <div class="row">
     <div class="col-md-8 offset-2">
         <p>
-            <h4>Update Mobile</h4>
+            <h4>
+                Update Mobile
+            </h4>
         </p>
 
         <div class="row">
             <div class="col-md-8 offset-2">
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group text-center">
+                        <img id="MobilePicturePreview"  style="max-width: 150px" />
+                    </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label asp-for="MobilePictureURL" class="control-label"></label>
                                 <input asp-for="MobilePictureURL" class="form-control" />
@@ -23,17 +26,17 @@
                             </div>
                             <div class="form-group">
                                 <label asp-for="MobileName" class="control-label"></label>
-                                <input asp-for="MobileName" type="date" class="form-control" />
+                                <input asp-for="MobileName" class="form-control" />
                                 <span asp-validation-for="MobileName" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Processor" class="control-label"></label>
-                                <input asp-for="Processor" type="date" class="form-control" />
+                                <input asp-for="Processor" class="form-control" />
                                 <span asp-validation-for="Processor" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label asp-for="RAM" class="control-label"></label>
-                                <input asp-for="RAM" type="number" class="form-control" />
+                                <input asp-for="RAM" class="form-control" />
                                 <span asp-validation-for="RAM" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -51,16 +54,26 @@
                                 <input asp-for="Battery" class="form-control" />
                                 <span asp-validation-for="Battery" class="text-danger"></span>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                        </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" type="number" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
-                    <div class="col-md-4 offset-4 text-center">
-                        <img width="100%" id="ImageUrlPreview" />
-                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="CompanyId" class="control-label"></label>
+                            <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.Companies" multiple></select>
+                            <span asp-validation-for="CompanyId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="OperatingId" class="control-label"></label>
+                            <select asp-for="OperatingId" class="form-control" asp-items="ViewBag.Operatings" multiple></select>
+                            <span asp-validation-for="OperatingId" class="text-danger"></span>
+                        </div>
+                       
                     <div class="form-group">
                         <input type="submit" value="Update" class="btn btn-outline-success float-right" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
                     </div>
                 </form>
             </div>
@@ -70,12 +83,11 @@
 @section Scripts{ 
     <script>
         $(document).ready(function () {
-            var output = document.getElementById("MobilePicturePreview");
-            output.src = $("#MobilePictureURL").val();
-        });
-
+            var output = document.getElementById('MobilePicturePreview');
+            output.src = "@Model.MobilePictureURL";
+        })
         $("#MobilePictureURL").on("change", function () {
-            var output = document.getElementById("MobilePicturePreview");
+            var output = document.getElementById('MobilePicturePreview');
             output.src = $(this).val();
         })
     </script>

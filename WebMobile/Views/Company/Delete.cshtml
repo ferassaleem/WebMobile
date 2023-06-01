@@ -11,38 +11,40 @@
             </h1>
         </p>
         <div class="col-md-8 offset-2">
-                <div asp-validation-summary="ModelOnly" class="text-danger">
-                </div>
-                <div class="form-group text-center">
-                    <img id="CompanyPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
-                </div>
-                <div class="form-group">
-                    <label asp-for="CompanyPictureURL" class="control-label">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
 
-                    </label>
-                    <input asp-for="CompanyPictureURL" class="form-control" readonly />
-                    <span asp-validation-for="CompanyPictureURL" class="text-danger">
+            </div>
+            <div class="form-group text-center">
+                <img id="CompanyPicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyPictureURL" class="control-label">
 
-                    </span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="CompanyName" class="control-label">
+                </label>
+                <input asp-for="CompanyPictureURL" class="form-control" readonly />
+                <span asp-validation-for="CompanyPictureURL" class="text-danger">
 
-                    </label>
-                    <input asp-for="CompanyName" class="form-control" readonly />
-                    <span asp-validation-for="CompanyName" class="text-danger">
+                </span>
+            </div>
 
-                    </span>
-                </div>
-                <div class="form-group">
-                    <form asp-action="Delete">
-                        <input type="hidden" asp-for="Id"/>
-                        <input type="submit" value="Confirm" class="btn btn-danger float-right"/>
-                    </form>
-                    <a class="btn btn-outline-secondary" asp-action="Index">
-                        Show All
-                    </a>
-                </div>
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label">
+
+                </label>
+                <input asp-for="CompanyName" class="form-control" readonly />
+                <span asp-validation-for="CompanyName" class="text-danger">
+
+                </span>
+            </div>
+            <div class="form-group">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Confirm" class="btn btn-danger float-right" />
+                </form>
+                <a class="btn btn-outline-secondary" asp-action="Index">
+                    Show All
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -50,9 +52,8 @@
     <script>
         $(document).ready(function () {
             var output = document.getElementById('CompanyPicturePreview');
-            output.src = $("").val();
+            output.src = "@Model.CompanyPictureURL";
         })
-
 
     </script>
 }

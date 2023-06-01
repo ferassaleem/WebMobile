@@ -14,18 +14,26 @@
                         <div class="card-header text-white bg-info">
                             <p class="card-text">
                                 <h5 class="card-title">
-                                    @item.Company.CompanyName @item.MobileName
-                                    <a class="text-white float-right">
+                                    <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id">
                                         <i class="badge-info bi-pencil-square">
 
                                         </i>
-                                    </a>                       
+                                    </a>
+                                    @item.Company.CompanyName @item.MobileName
+                                    <br>
+                                    <b>Price: </b>@item.Price
+                                    
+                                    <a class="text-danger float-right" asp-action="Delete" asp-route-id="@item.Id">
+                                        <i class="bi bi-trash-fill">
+                                            
+                                        </i>
+                                    </a>
                                 </h5>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="@item.MobilePictureURL" width="100%" alt="@item.MobileName">
+                        <img style="width:150px; height:150px;" src="@item.MobilePictureURL" width="100%" alt="@item.MobileName">
                         <p class="card-text"><b>Company: </b>@item.Company.CompanyName</p>
                         <p class="card-text"><b>Operating: </b>@item.Operating.OperatingName</p>
                         <p class="card-text"><b>Camera: </b>@item.Camera</p>
@@ -42,7 +50,7 @@
                     <div class="col-md-12">
                         <div class="card-footer ">
                             <p class="card-text">
-                                <a class="btn btn-outline-primary float-right">
+                                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill">
 
                                     </i>

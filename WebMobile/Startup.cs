@@ -37,10 +37,8 @@ namespace WebMobile
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IMobileService, MobilesService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 
             //Authentication and authorization
-            //services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             services.AddMemoryCache();
             services.AddSession();
             services.AddAuthentication(options =>

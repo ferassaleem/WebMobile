@@ -32,6 +32,8 @@ namespace WebMobile.Models
         [Display(Name = "Battery")]
         public string Battery { get; set; }
 
+        [Display(Name = "Price")]
+        public int Price { get; set; }
 
         //OperatingSystem
         public int OperatingId { get; set; }
