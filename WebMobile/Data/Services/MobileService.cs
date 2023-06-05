@@ -27,6 +27,7 @@ namespace WebMobile.Data.Services
                 Camera = data.Camera,
                 Screen = data.Screen,
                 Battery = data.Battery,
+                Price = data.Price,
                 OperatingId = data.OperatingId,
                 CompanyId = data.CompanyId
             };
